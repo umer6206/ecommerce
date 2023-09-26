@@ -7,6 +7,7 @@ import CategoryRoute from './routes/CategoryRoute.js'
 import ProductRoute from './routes/ProductRoute.js'
 import cors from "cors"
 import path from 'path'
+import {fileURLToPath} from "url"
 // configure env
 dotenv.config()
 
@@ -16,7 +17,10 @@ dbconnect()
 
 //objects
 const app = express()
+//
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 //middleware
 app.use(morgan("dev"))
 app.use(express.json())
